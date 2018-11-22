@@ -17,7 +17,9 @@ var ImgUpload = {
 		this.fileInput = chooseFileButton;
 		this.showBox = showContainer;
 		this.submitBtn = submitButton;
-		this.showImg();
+		chooseFileButton.onchange = function() {
+			_this.showImg();
+		}
 		this.submitImg();
 	},
 	showImg: function() {

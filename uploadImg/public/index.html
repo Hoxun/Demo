@@ -61,7 +61,7 @@
 		}
 
 		#submitFile {
-		    /*display: none;*/
+		    display: none;
 			margin: 0 auto;
 			width: 50px;
 		}
@@ -96,10 +96,7 @@
 		var $addFile = document.getElementById("addFile");
 		var $submitFile = document.getElementById("submitFile");
 		var $showImg = document.getElementsByClassName("showImg")[0];
-		$addFile.onchange = function() {
-			ImgUpload.init(this, $showImg, $submitFile)
-		}
-		
+		ImgUpload.init($addFile, $showImg, $submitFile)
 	</script>
 </body>
 </html>
