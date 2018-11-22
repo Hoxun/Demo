@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,initial-scale=1.0,user-scalable=no" />
+	<title>选择图片</title>
+	<link rel="stylesheet" href="css/reset.css">
+	<style>
+		body{background: #B7CBE8;}
+
+		form {
+			margin: 50px auto 50px;
+			width: 52px;
+			text-align: center;
+		}
+		.addFileLabel {
+			display: block;
+			width: 50px;
+			height: 50px;
+			overflow: hidden;
+			border: 1px #7B7B7B solid;
+		}
+		.addFileLabel i {
+			display: block;
+			width: 100%;
+			height: 100%;
+			text-align: center;
+			line-height: 45px;
+			font-size: 32px; 
+			font-style: normal;
+		}
+		#addFile {
+			display: none;
+		}
+
+		.showImg {
+			margin: 0 auto;
+			width: 800px;
+			overflow: hidden;
+		}
+		.showImg figure {
+			position: relative;
+			overflow: hidden;
+			float: left;
+			margin: 1px;
+			width: 98px;
+			height: 98px;
+		}
+		.showImg figcaption {
+			position: absolute;
+			z-index: 1;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			text-align: center;
+			background: rgba(0, 0, 0, .1);
+		}
+		.showImg img {
+			width: 100%;
+			height: 100%;
+		}
+
+		#submitFile {
+		    /*display: none;*/
+			margin: 0 auto;
+			width: 50px;
+		}
+
+		@media screen and (max-width:420px) {
+			.showImg {
+				width: 300px;
+			}
+		}
+		
+		
+	</style>
+</head>
+
+<body>
+	<form id="uploadForm" action="http://localhost/MYPHP/uploadImg/server/index.php" enctype="multipart/form-data">
+
+		<label class="addFileLabel" for="addFile">
+			<i>+<br>选择文件</i>
+			<input id="addFile" type="file" multiple>
+		</label>
+		
+		<button id="submitFile" type="button">上传</button>
+	</form>
+
+	<div class="showImg">
+		
+	</div>
+
+	<script src="js/imgUpload.js"></script>
+	<script>
+		var $addFile = document.getElementById("addFile");
+		var $submitFile = document.getElementById("submitFile");
+		var $showImg = document.getElementsByClassName("showImg")[0];
+		$addFile.onchange = function() {
+			ImgUpload.init(this, $showImg, $submitFile)
+		}
+		
+	</script>
+</body>
+</html>
